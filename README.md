@@ -10,3 +10,33 @@ Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进
 
 将这段代码放到html文件中，我们就可以使用关于Vue.js框架了。
 ## 用Vue.js写第一个Hello World程序
+### 声明式渲染
+Vue.js 的核心是一个允许采用简洁的模板语法来声明式的将数据渲染进 DOM：
+html文件  
+```
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<body>
+
+  <div id="app">
+    {{ message }}
+  </div>
+</body>
+
+<script src="1.js"></script>
+
+</html>
+```
+js文件
+``` 
+var app = new Vue({
+   el: '#app',
+   data: {
+    message: 'Hello World!'
+   }
+ }) 
+ ```
+ 
+Vue 在背后做了大量工作,现在数据和 DOM 已经被绑定在一起，所有的元素都是响应式的。打开你的浏览器的控制台（就在这个页面打开），并修改 app.message，你将看到上例相应的更新。
