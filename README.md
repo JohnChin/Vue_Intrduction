@@ -11,7 +11,7 @@ Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进
 将这段代码放到html文件中，我们就可以使用关于Vue.js框架了。
 ## 用Vue.js写第一个Hello World程序
 ### 声明式渲染
-Vue.js 的核心是一个允许采用简洁的模板语法来声明式的将数据渲染进 DOM：
+Vue.js 的核心是一个允许采用简洁的模板语法来声明式的将数据渲染进 DOM  
 html文件  
 ```
 <!DOCTYPE html>
