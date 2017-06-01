@@ -38,5 +38,5 @@ var app = new Vue({
    }
  }) 
  ```
- 
+ ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/quote/result.png)  
 Vue 在背后做了大量工作,现在数据和 DOM 已经被绑定在一起，所有的元素都是响应式的。打开你的浏览器的控制台（就在这个页面打开），并修改 app.message，你将看到上例相应的更新。
