@@ -40,3 +40,35 @@ var app = new Vue({
  ```
  ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/quote/result.png)  
 Vue 在背后做了大量工作,现在数据和 DOM 已经被绑定在一起，所有的元素都是响应式的。打开你的浏览器的控制台（就在这个页面打开），并修改 app.message，你将看到上例相应的更新。
+## 处理用户输入
+为了让用户和你的应用进行互动，我们可以用 v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法：  
+```
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+
+  <div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+</body>
+
+<script src="2.js"></script>
+
+</html>
+```
+```
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+```
+注意在 reverseMessage 方法中，我们更新了应用的状态，但没有触碰 DOM——所有的 DOM 操作都由 Vue 来处理，你编写的代码只需要关注底层逻辑。
