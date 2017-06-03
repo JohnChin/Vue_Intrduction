@@ -71,4 +71,5 @@ var app5 = new Vue({
   }
 })
 ```
+ ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/Input/input1.png）
 注意在 reverseMessage 方法中，我们更新了应用的状态，但没有触碰 DOM——所有的 DOM 操作都由 Vue 来处理，你编写的代码只需要关注底层逻辑。
