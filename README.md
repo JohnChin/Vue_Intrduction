@@ -38,6 +38,8 @@ var app = new Vue({
    }
  }) 
  ```
+  ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/quote/result.png)  
+
 Vue 在背后做了大量工作,现在数据和 DOM 已经被绑定在一起，所有的元素都是响应式的。打开你的浏览器的控制台（就在这个页面打开），并修改 app.message，你将看到上例相应的更新。
 ## 处理用户输入
 为了让用户和你的应用进行互动，我们可以用 v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法：  
@@ -70,7 +72,6 @@ var app5 = new Vue({
   }
 })
 ```
- ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/Input/input1.png)  
 注意在 reverseMessage 方法中，我们更新了应用的状态，但没有触碰 DOM——所有的 DOM 操作都由 Vue 来处理，你编写的代码只需要关注底层逻辑。  
 Vue 还提供了 v-model 指令，它能轻松实现表单输入和应用状态之间的双向绑定。
 ```
@@ -87,4 +88,4 @@ var app6 = new Vue({
   }
 })
 ```
- ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/quote/result.png)  
+ ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/Input/input1.png)  
