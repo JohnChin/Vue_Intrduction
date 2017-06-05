@@ -41,6 +41,10 @@ var app = new Vue({
   ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/quote/result.png)  
 
 Vue 在背后做了大量工作,现在数据和 DOM 已经被绑定在一起，所有的元素都是响应式的。打开你的浏览器的控制台（就在这个页面打开），并修改 app.message，你将看到上例相应的更新。
+### MVVM 数据绑定
+MVVM的本质是通过数据绑定链接*View*和*Model*，让数据的变化自动映射为视图的更新。Vue.js在数据绑定的API设计上借鉴了*Angular*的指令机制：用户可以通过具有特殊前缀的HTML 属性来实现数据绑定，也可以使用常见的花括号模板插值，或是在表单元素上使用双向绑定。  
+插值本质上也是指令，只是为了方便模板的书写。在模板的编译过程中，Vue.js会为每一处需要动态更新的DOM节点创建一个指令对象。每当一个指令对象观测的数据变化时，它便会对所绑定的目标节点执行相应的DOM操作。基于指令的数据绑定使得具体的DOM操作都被合理地封装在指令定义中，业务代码只需要涉及模板和对数据状态的操作即可，这使得应用的开发效率和可维护性都大大提升。  
+![imgage](http://img.ptcms.csdn.net/article/201508/11/55c9abacf113a.jpg)
 ## 处理用户输入
 为了让用户和你的应用进行互动，我们可以用 v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法：  
 ```
@@ -89,3 +93,17 @@ var app6 = new Vue({
 })
 ```
  ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/Input/input1.png)  
+## Vue.js的常用指令
+上面用到的v-model是Vue.js常用的一个指令，那么指令是什么呢？
+
+Vue.js的指令是以v-开头的，它们作用于HTML元素，指令提供了一些特殊的特性，将指令绑定在元素上时，指令会为绑定的目标元素添加一些特殊的行为，我们可以将指令看作特殊的HTML特性（attribute）。
+Vue.js提供了一些常用的内置指令，接下来我们将介绍以下几个内置指令：
+* v-if指令
+* v-show指令
+* v-else指令
+* v-for指令
+* v-bind指令
+* v-on指令  
+Vue.js具有良好的扩展性，我们也可以开发一些自定义的指令。
+### 组件系统
+![image](https://cn.vuejs.org/images/components.png)
