@@ -6,8 +6,8 @@ Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进
 ## Vue.js框架的引用
 最简单的方法是直接调用下面网址的js代码。  
 
-```<script src="https://unpkg.com/vue/dist/vue.js"></script>```  
-
+```<script src="https://unpkg.com/vue/dist/vue.js"></script>```  
+也可以直接下载下来到本地，可离线使用。  
 将这段代码放到html文件中，我们就可以使用关于Vue.js框架了。
 ## 用Vue.js写第一个Hello World程序
 ### 声明式渲染
@@ -107,3 +107,5 @@ Vue.js提供了一些常用的内置指令，接下来我们将介绍以下几�
 Vue.js具有良好的扩展性，我们也可以开发一些自定义的指令。
 ### 组件系统
 ![image](https://cn.vuejs.org/images/components.png)
+## 一个简单的DEMO
+接下来，用Vue.js的一些知识，来实现一个简单的签到系统。
