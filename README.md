@@ -249,4 +249,6 @@ Vue.component('todo-item', {
 
 </html>
 ```
-实现效果：  
+实现效果： 
+
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/signsys/sign.png)
