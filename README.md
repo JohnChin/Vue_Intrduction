@@ -106,6 +106,113 @@ Vue.js提供了一些常用的内置指令，接下来我们将介绍以下几�
 * v-on指令  
 Vue.js具有良好的扩展性，我们也可以开发一些自定义的指令。
 ### 组件系统
+在Vue.js的设计中将组件作为一个核心概念。可以说，每一个Vue.js应用都是围绕着组件来开发的。  
 ![image](https://cn.vuejs.org/images/components.png)
 ## 一个简单的DEMO
 接下来，用Vue.js的一些知识，来实现一个简单的签到系统。
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="demo.css" />
+</head>
+
+<body>
+    <div id="app">
+
+        <fieldset>
+            <legend>
+                签到系统
+            </legend>
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" v-model="newPerson.name" />
+            </div>
+            <div class="form-group">
+                <label>Num:</label>
+                <input type="text" v-model="newPerson.num" />
+            </div>
+            <div class="form-group">
+                <label>Sex:</label>
+                <select v-model="newPerson.sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label></label>
+                <button @click="createPerson">Create</button>
+            </div>
+        </fieldset>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Num</th>
+                    <th>Sex</th>
+                    <th>Delete</th>
+                    <th>Sign</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="person in people">
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.num }}</td>
+                    <td>{{ person.sex }}</td>
+                    <td :class="'text-center'"><button @click="deletePerson($index)">Delete</button></td>
+                    <td :class="'text-center'" ><button onclick="this.style.color='red';" @click="sign()">Sign</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            newPerson: {
+                name: '',
+                num: 0,
+                sex: 'Male'
+            },
+            people: [{
+                name: 'Jack',
+                num: 31401367,
+                sex: 'Male'
+            }, {
+                name: 'Bill',
+                num: 31509150,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                num: 31606370,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                num: 31405238,
+                sex: 'Male'
+            }]
+        },
+        methods: {
+            createPerson: function () {
+                this.people.push(this.newPerson);
+                // 添加完newPerson对象后，重置newPerson对象
+                this.newPerson = { name: '', num: 0, sex: 'Male' }
+            },
+            deletePerson: function (index) {
+                // 删一个数组元素
+                this.people.splice(index, 1);
+            },
+            sign: function(){          
+                alert("签到成功！");
+            }
+        }
+    })
+</script>
+
+</html>
+```
