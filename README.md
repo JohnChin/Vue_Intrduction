@@ -177,6 +177,9 @@ var app7 = new Vue({
   }
 })
 ```
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/component/comp.png)  
+这只是一个假设的例子，但是我们已经设法将应用分割成了两个更小的单元，子单元通过 props 接口实现了与父单元很好的解耦。我们现在可以进一步为我们的 todo-item 组件实现更复杂的模板和逻辑的改进，而不会影响到父单元。  
+在一个大型应用中，有必要将整个应用程序划分为组件，以使开发可管理。
 ## 一个简单的DEMO
 接下来，用Vue.js的一些知识，来实现一个简单的签到系统。
 ```
