@@ -180,7 +180,7 @@ v-show也是条件渲染指令，和v-if指令不同的是，使用v-show指令�
 ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-show/v-show.png)  
 这里v-show指令也需要与v-if指令一样进行判定，name.indexOf('keepfool') >= 0时才能输出keepfool。  
 * v-else指令  
-可以用v-else指令为v-if或v-show添加一个“else块”。v-else元素必须立即跟在v-if元素的后面——否则它不能被识别。
+可以用v-else指令为v-if添加一个“else块”。v-else元素必须立即跟在v-if元素的后面——否则它不能被识别。
 ```
 <!DOCTYPE html>
 <html>
