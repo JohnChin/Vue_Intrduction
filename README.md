@@ -314,8 +314,9 @@ v-bind:argument="expression"
     </script>
 </html>
 ```
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-bind/v-bind.png)  
 
-注意v-for="n in pageCount"这行代码，pageCount是一个整数，遍历时n从1开始，然后遍历到pageCount –1结束。  
+注意v-for="n in pageCount"这行代码，pageCount是一个整数，遍历时n从1开始，然后遍历到pageCount结束。  
 * v-on指令    
 v-on指令用于给监听DOM事件，它的用语法和v-bind是类似的，例如监听<a>元素的点击事件：
 <a v-on:click="doSomething">
