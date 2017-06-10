@@ -280,6 +280,8 @@ items是一个数组，item是当前被遍历的数组元素。
 </html>
 ```
 ![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-for/v-for.png)  
+我们在选项对象的data属性中定义了一个people数组，然后在#app元素内使用v-for遍历people数组，输出每个person对象的姓名、年龄和性别。  
+
 * v-bind指令  
 v-bind指令可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素的特性（attribute），例如：v-bind:class
 v-bind:argument="expression"
