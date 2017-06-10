@@ -135,6 +135,7 @@ expression是一个返回bool值的表达式，表达式可以是一个bool属�
     </script>
 </html>
 ```
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-if/v-if.png)  
 这段代码使用了4个表达式：  
 数据的yes属性为true，所以"Yes!"会被输出；  
 数据的no属性为false，所以"No!"不会被输出；  
@@ -176,6 +177,7 @@ v-show也是条件渲染指令，和v-if指令不同的是，使用v-show指令�
     </script>
 </html>
 ```
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-show/v-show.png)  
 这里v-show指令也需要与v-if指令一样进行判定，name.indexOf('keepfool') >= 0时才能输出keepfool。  
 * v-else指令  
 可以用v-else指令为v-if或v-show添加一个“else块”。v-else元素必须立即跟在v-if元素的后面——否则它不能被识别。
@@ -210,9 +212,11 @@ v-show也是条件渲染指令，和v-if指令不同的是，使用v-show指令�
     </script>
 </html>
 ```
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-else/v-else.png)  
 v-else元素是否渲染在HTML中，取决于前面使用的是v-if还是v-show指令。  
-这段代码中v-if为true，后面的v-else不会渲染到HTML。
-v-show为true，但是后面的v-else永远不会渲染到HTML了。  
+这段代码中v-if为true，后面的v-else不会渲染到HTML。  
+v-if为false的，后面的会紧跟着输出。
+v-show为true，但是因为前面没有跟v-if,后面的v-else永远不会渲染到HTML了。  
 * v-for指令  
 v-for指令基于一个数组渲染一个列表，它和JavaScript的遍历语法相似：
 v-for="item in items"
@@ -275,6 +279,7 @@ items是一个数组，item是当前被遍历的数组元素。
 
 </html>
 ```
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-for/v-for.png)  
 * v-bind指令  
 v-bind指令可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素的特性（attribute），例如：v-bind:class
 v-bind:argument="expression"
@@ -309,7 +314,8 @@ v-bind:argument="expression"
     </script>
 </html>
 ```
-注意v-for="n in pageCount"这行代码，pageCount是一个整数，遍历时n从0开始，然后遍历到pageCount –1结束。  
+
+注意v-for="n in pageCount"这行代码，pageCount是一个整数，遍历时n从1开始，然后遍历到pageCount –1结束。  
 * v-on指令    
 v-on指令用于给监听DOM事件，它的用语法和v-bind是类似的，例如监听<a>元素的点击事件：
 <a v-on:click="doSomething">
@@ -357,6 +363,7 @@ Greet按钮将它的单击事件直接绑定到greet()方法，而Hi按钮则是
     </script>
 </html>
 ```
+![image](https://github.com/JohnChin/Vue_Intrduction/blob/quote/v-on/v-on.png)  
 Vue.js具有良好的扩展性，我们也可以开发一些自定义的指令。  
 
 ### 组件系统
