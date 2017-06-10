@@ -299,7 +299,7 @@ v-bind:argument="expression"
         <div id="app">
             <ul class="pagination">
                 <li v-for="n in pageCount">
-                    <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a>
+                    <a href="javascripit:void(0)" v-bind:class="activeNumber === n ? 'active' : ''">{{ n + 1 }}</a>
                 </li>
             </ul>
         </div>
