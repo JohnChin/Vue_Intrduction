@@ -216,17 +216,146 @@ v-show为true，但是后面的v-else永远不会渲染到HTML了。  
 v-for指令基于一个数组渲染一个列表，它和JavaScript的遍历语法相似：
 v-for="item in items"
 items是一个数组，item是当前被遍历的数组元素。
+```
+<!DOCTYPE html>
+<html>
 
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="demo.css" />
+    </head>
+
+    <body>
+        <div id="app">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="person in people">
+                        <td>{{ person.name  }}</td>
+                        <td>{{ person.age  }}</td>
+                        <td>{{ person.sex  }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                people: [{
+                    name: 'Jack',
+                    age: 30,
+                    sex: 'Male'
+                }, {
+                    name: 'Bill',
+                    age: 26,
+                    sex: 'Male'
+                }, {
+                    name: 'Tracy',
+                    age: 22,
+                    sex: 'Female'
+                }, {
+                    name: 'Chris',
+                    age: 36,
+                    sex: 'Male'
+                }]
+            }
+        })
+    </script>
+
+</html>
+```
 * v-bind指令  
 v-bind指令可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素的特性（attribute），例如：v-bind:class
 v-bind:argument="expression"
 下面这段代码构建了一个简单的分页条，v-bind指令作用于元素的class特性上。
-这个指令包含一个表达式，表达式的含义是：高亮当前页。
+这个指令包含一个表达式，表达式的含义是：高亮当前页。  
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="demo.css" />
+    </head>
+    <body>
+        <div id="app">
+            <ul class="pagination">
+                <li v-for="n in pageCount">
+                    <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                activeNumber: 2,
+                pageCount: 10
+            }
+        })
+    </script>
+</html>
+```
+注意v-for="n in pageCount"这行代码，pageCount是一个整数，遍历时n从0开始，然后遍历到pageCount –1结束。  
 * v-on指令    
 v-on指令用于给监听DOM事件，它的用语法和v-bind是类似的，例如监听<a>元素的点击事件：
 <a v-on:click="doSomething">
 有两种形式调用方法：绑定一个方法（让事件指向方法的引用），或者使用内联语句。
 Greet按钮将它的单击事件直接绑定到greet()方法，而Hi按钮则是调用say()方法。  
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <p><input type="text" v-model="message"></p>
+            <p>
+                <!--click事件直接绑定一个方法-->
+                <button v-on:click="greet">Greet</button>
+            </p>
+            <p>
+                <!--click事件使用内联语句-->
+                <button v-on:click="say('Hi')">Hi</button>
+            </p>
+        </div>
+    </body>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, Vue.js!'
+            },
+            // 在 `methods` 对象中定义方法
+            methods: {
+                greet: function() {
+                    // // 方法内 `this` 指向 vm
+                    alert(this.message)
+                },
+                say: function(msg) {
+                    alert(msg)
+                }
+            }
+        })
+    </script>
+</html>
+```
 Vue.js具有良好的扩展性，我们也可以开发一些自定义的指令。  
 
 ### 组件系统
