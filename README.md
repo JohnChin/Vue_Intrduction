@@ -309,7 +309,7 @@ v-bind:argument="expression"
         var vm = new Vue({
             el: '#app',
             data: {
-                activeNumber: 2,
+                activeNumber: 1,
                 pageCount: 10
             }
         })
