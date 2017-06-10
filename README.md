@@ -120,7 +120,7 @@ expression是一个返回bool值的表达式，表达式可以是一个bool属�
             <h1 v-if="name.indexOf('jack') >= 0">Name: {{ name }}</h1>
         </div>
     </body>
-    <script src="js/vue.js"></script>
+    <script src="vue.js"></script>
     <script>
         
         var vm = new Vue({
@@ -144,12 +144,79 @@ expression是一个返回bool值的表达式，表达式可以是一个bool属�
 这一点可以从渲染的HTML源代码看出来，面上只渲染了3个元素，v-if值为false的元素没有渲染到HTML。
 * v-show指令  
 v-show也是条件渲染指令，和v-if指令不同的是，使用v-show指令的元素始终会被渲染到HTML，它只是简单地为元素设置CSS的style属性。
-* v-else指令  
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Hello, Vue.js!</h1>
+            <h1 v-show="yes">Yes!</h1>
+            <h1 v-show="no">No!</h1>
+            <h1 v-show="age >= 25">Age: {{ age }}</h1>
+            <h1 v-show="name.indexOf('jack') >= 0">Name: {{ name }}</h1>
+            <h1 v-show="name.indexOf('keepfool') >= 0">Name: {{ name }}</h1>
+        </div>
+    </body>
+    <script src="vue.js"></script>
+    <script>
+        
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                yes: true,
+                no: false,
+                age: 28,
+                name: 'keepfool'
+            }
+        })
+    </script>
+</html>
+```
+* v-else指令  
 可以用v-else指令为v-if或v-show添加一个“else块”。v-else元素必须立即跟在v-if或v-show元素的后面——否则它不能被识别。
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <h1 v-if="age >= 25">Age: {{ age }}</h1>
+            <h1 v-else>Name: {{ name }}</h1>
+            <h1 v-if="age <= 25">Age: {{ age }}</h1>
+            <h1 v-else>Name: {{ name }}</h1>
+            <h1>---------------------分割线---------------------</h1>
+            <h1 v-show="name.indexOf('keep') >= 0">Name: {{ name }}</h1>
+            <h1 v-else>Sex: {{ sex }}</h1>
+        </div>
+    </body>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                age: 20,
+                name: 'keepfool',
+                sex: 'Male'
+            }
+        })
+    </script>
+</html>
+```
+v-else元素是否渲染在HTML中，取决于前面使用的是v-if还是v-show指令。  
+这段代码中v-if为true，后面的v-else不会渲染到HTML。
+v-show为true，但是后面的v-else永远不会渲染到HTML了。  
 * v-for指令  
 v-for指令基于一个数组渲染一个列表，它和JavaScript的遍历语法相似：
 v-for="item in items"
 items是一个数组，item是当前被遍历的数组元素。
+
 * v-bind指令  
 v-bind指令可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素的特性（attribute），例如：v-bind:class
 v-bind:argument="expression"
